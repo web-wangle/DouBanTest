@@ -1,11 +1,11 @@
 <template>
   <div id="db_head">
     <van-row>
-      <van-col span="9"><a href="/" class="head_img"></a></van-col>
-      <van-col span="3"><router-link to="/movie" style="color: rgb(35, 132, 232);">电影</router-link></van-col>
-      <van-col span="3"><router-link to="/book" style="color: rgb(159, 120, 96);">图书</router-link></van-col>
-      <van-col span="3"><router-link to="/status" style="color: rgb(228, 168, 19);">广播</router-link></van-col>
-      <van-col span="3"><router-link to="/group" style="color: rgb(42, 184, 204);">小组</router-link></van-col>
+      <van-col span="9"><router-link :to="{name: 'home'}" class="head_img"></router-link></van-col>
+      <van-col span="3"><router-link :to="{name: 'movie'}" style="color: rgb(35, 132, 232);">电影</router-link></van-col>
+      <van-col span="3"><router-link :to="{name: 'book'}" style="color: rgb(159, 120, 96);">图书</router-link></van-col>
+      <van-col span="3"><router-link :to="{name: 'status'}" style="color: rgb(228, 168, 19);">广播</router-link></van-col>
+      <van-col span="3"><router-link :to="{name: 'group'}" style="color: rgb(42, 184, 204);">小组</router-link></van-col>
       <van-col span="3"><div class="search"></div></van-col>
     </van-row>
   </div>
@@ -22,6 +22,7 @@ export default {
 </script>
 
 <style scoped>
+.router-link-active{text-decoration: none;}
 #db_head{
   padding: 0px 19px;
   border-bottom: 1px solid #f3f3f3;
