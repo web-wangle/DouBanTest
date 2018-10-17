@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>douban-vue</title>
     <style>
+    html, body {-webkit-text-size-adjust: 100%;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);}
     body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; } 
     body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; } 
     h1, h2, h3, h4, h5, h6{ font-size:100%; } 
@@ -26,4 +27,13 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
+
+  <script>
+  //得到手机屏幕的宽度
+  let htmlWidth = document.documentElement.clientWidth || document.body.clientWidth;
+  //得到html的Dom元素
+  let htmlDom = document.getElementsByTagName('html')[0];
+  //设置根元素字体大小
+  htmlDom.style.fontSize= htmlWidth/25 + 'px';
+  </script>
 </html>
