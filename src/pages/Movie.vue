@@ -1,17 +1,22 @@
 <!-- 豆瓣电影板块 -->
 <template>
   <div id="movie">
-    我是电影板块
+    {{movieData}}
   </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: '',
   data () {
     return {
+      movieData: []
     };
   },
+  created(){
+  }
 }
 
 </script>
