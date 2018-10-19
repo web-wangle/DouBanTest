@@ -5,7 +5,6 @@ import router from './router'
 //vant引入
 import { Row, Col } from 'vant'
 
-
 Vue.use(Row).use(Col)
 
 Vue.config.productionTip = false

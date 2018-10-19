@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import {movieUrl} from '@/severAPI'
 
 export default {
   name: '',
@@ -15,7 +15,11 @@ export default {
       movieData: []
     };
   },
-  created(){
+ created(){
+   movieUrl.get('hotmovie')
+   .then((res) => {
+     this.movieData.push(res);
+   })
   }
 }
 
