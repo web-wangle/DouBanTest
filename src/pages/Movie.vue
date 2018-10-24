@@ -25,6 +25,7 @@ export default {
   name: '',
   data () {
     return {
+      time: '',
       hotMovie: {},
       freeMovie: {},
       newMovie: {}
@@ -35,18 +36,30 @@ export default {
     cardMain: cardMain
   },
  created(){
-   movieUrl.get('hotmovie')
-   .then((res) => {
-     this.hotMovie = res;
-   });
-   movieUrl.get('freemovie')
-   .then((res) => {
-     this.freeMovie = res;;
-   });
-   movieUrl.get('newmovie')
-   .then((res) => {
-     this.newMovie = res;;
-   });
+   this.getTime();
+   this.getMovieData('hotMovie', this.time);
+   this.getMovieData('freeMovie', this.time);
+   this.getMovieData('newMovie', this.time);
+  },
+  methods: {
+    getTime(){
+      this.time = new Date().getTime();
+    },
+    getMovieData(movieType,time){
+      const getFlag = time - localStorage.getItem('getMovieTime') > 10*60*1000 ? false : true;
+      if(window.localStorage && getFlag && localStorage.getItem(movieType)){
+        this[movieType] = JSON.parse(localStorage.getItem(movieType));
+      }else{
+        movieUrl.get(movieType)
+        .then((res) => {
+          if(window.localStorage && res !== undefined){
+            this[movieType] = res;
+            localStorage.setItem(movieType,JSON.stringify(res));
+            localStorage.setItem('getMovieTime',time);
+          }
+        })
+      }
+    }
   }
 }
 
