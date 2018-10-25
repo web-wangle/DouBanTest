@@ -3,9 +3,9 @@ import App from './App'
 import router from './router'
 
 //vant引入
-import { Row, Col } from 'vant'
+import { Row, Col, Rate } from 'vant'
 
-Vue.use(Row).use(Col)
+Vue.use(Row).use(Col).use(Rate)
 
 Vue.config.productionTip = false
 

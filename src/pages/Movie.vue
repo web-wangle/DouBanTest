@@ -58,8 +58,8 @@ export default {
             localStorage.setItem('getMovieTime',time);
           }
         })
-      }
-    }
+      };
+    },
   }
 }
 
